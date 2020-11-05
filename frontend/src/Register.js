@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./App.css";
+import YodlrAPI from "./YodlrAPI";
 import UserContext from "./UserContext";
 
 const Register = () => {
@@ -10,8 +11,9 @@ const Register = () => {
   }
   const [formData, setFormData] = useState(INITIAL_VALUE);
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
         e.preventDefault();
+        const userResults = await YodlrAPI.registerUser(formData);
         setFormData(INITIAL_VALUE);
   }
 

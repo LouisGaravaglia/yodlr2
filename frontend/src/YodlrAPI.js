@@ -27,42 +27,12 @@ class YodlrAPI {
 
     static async getUsers() {
       let res = await this.request("users");
-      console.log("USERs: ", res);
       return res;
     }
   
-    static async getCompanies(search) {
-      let res = await this.request("companies", { search });
-      return res.companies;
-    }
-
-    static async getCompany(handle) {
-      let res = await this.request(`companies/${handle}`);
-      return res.company;
-    }
-
-    static async getJobs(search) {
-      let res = await this.request("jobs", { search });
-      console.log("geJob: ", res);
-    return res.jobs;
-    }
-
     static async registerUser(data) {
       let res = await this.request("users", data, "post");
-      console.log("REGISTER USER RESPONSE", res);
-    return res.token;
-    }
-
-    static async loginUser(data) {
-      let res = await this.request("login", data, "post");
-      console.log("LOGIN USER RESPONSE", res);
-    return res.token;
-    }
-
-    static async getCurrentUser(username) {
-      let res = await this.request(`users/${username}`);
-      console.log("GOT CURRENT USER RESPONSE", res);
-    return res.user;
+      return res
     }
 
     static async updateUser(username, data) {
@@ -71,11 +41,6 @@ class YodlrAPI {
     return res.user;
     }
 
-    static async applyToJob(id) {
-      let res = await this.request(`jobs/${id}/apply`, {}, "post");
-      console.log("made a call to applyToJob", res);
-    return res.message;
-    }
 
     
   }
