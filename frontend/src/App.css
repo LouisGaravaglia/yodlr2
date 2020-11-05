@@ -102,4 +102,13 @@ input {
   margin: auto;
 }
 
+.User { 
+  color: rgb(36, 36, 36);
+  text-decoration: none;
+  margin: 30px 450px;
+  padding: 20px 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
 

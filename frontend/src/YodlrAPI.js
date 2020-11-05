@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class YodlrAPI {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
-      paramsOrData._token = localStorage.getItem("jobly-token");
+    
   
       console.debug("API Call:", endpoint, paramsOrData, verb);
   
@@ -23,6 +23,12 @@ class YodlrAPI {
         let message = err.response.data.message;
         throw Array.isArray(message) ? message : [message];
       }
+    }
+
+    static async getUsers() {
+      let res = await this.request("users");
+      console.log("USERs: ", res);
+      return res;
     }
   
     static async getCompanies(search) {
